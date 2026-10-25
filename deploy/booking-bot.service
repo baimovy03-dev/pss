@@ -1,0 +1,24 @@
+[Unit]
+Description=Demo appointment Telegram bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=bookingbot
+Group=bookingbot
+WorkingDirectory=/opt/booking-bot
+EnvironmentFile=/etc/booking-bot.env
+Environment=DATABASE_PATH=/var/lib/booking-bot/bookings.sqlite3
+ExecStart=/opt/booking-bot/.venv/bin/python -m booking_bot
+Restart=on-failure
+RestartSec=5
+StateDirectory=booking-bot
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
