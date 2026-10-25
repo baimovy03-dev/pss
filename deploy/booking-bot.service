@@ -1,5 +1,5 @@
 [Unit]
-Description=Demo appointment Telegram bot
+Description=Appointment booking Telegram bot
 After=network-online.target
 Wants=network-online.target
 
@@ -9,6 +9,7 @@ User=bookingbot
 Group=bookingbot
 WorkingDirectory=/opt/booking-bot
 EnvironmentFile=/etc/booking-bot.env
+Environment=LOAD_DOTENV=0
 Environment=DATABASE_PATH=/var/lib/booking-bot/bookings.sqlite3
 ExecStart=/opt/booking-bot/.venv/bin/python -m booking_bot
 Restart=on-failure

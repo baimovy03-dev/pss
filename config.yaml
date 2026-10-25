@@ -1,0 +1,49 @@
+business:
+  name: Студия «Пример»
+  welcome: Добро пожаловать! Выберите услугу и удобное время.
+  address: Бишкек, укажите ваш адрес
+  contacts: '@your_manager · +996 XXX XXX XXX'
+  timezone: Asia/Bishkek
+  currency: сом
+booking:
+  days_ahead: 14
+  slot_step_minutes: 30
+  min_notice_minutes: 60
+  cancel_notice_minutes: 120
+  reminder_minutes: 60
+  max_active_per_client: 3
+  closed_dates: [] # Например ['2027-01-01']
+# Дни недели: 0 — понедельник, 6 — воскресенье. Несколько интервалов = перерыв.
+schedule:
+  0: [['09:00', '13:00'], ['14:00', '18:00']]
+  1: [['09:00', '13:00'], ['14:00', '18:00']]
+  2: [['09:00', '13:00'], ['14:00', '18:00']]
+  3: [['09:00', '13:00'], ['14:00', '18:00']]
+  4: [['09:00', '13:00'], ['14:00', '18:00']]
+  5: [['10:00', '16:00']]
+  6: []
+services:
+  - id: haircut
+    name: Стрижка
+    duration_minutes: 60
+    price: 1000
+  - id: consultation
+    name: Консультация
+    duration_minutes: 30
+    price: 500
+staff:
+  - id: anna
+    name: Анна
+    services: [haircut, consultation]
+  - id: alex
+    name: Алексей
+    services: [haircut]
+    # schedule: {0: [['10:00', '16:00']]} # Индивидуальная неделя вместо общей
+    closed_dates: []
+faq:
+  - question: Как отменить запись?
+    answer: Откройте «Мои записи» и нажмите «Отменить». Позднюю отмену согласуйте с администратором.
+  - question: Как оплатить?
+    answer: Оплата на месте. Уточните доступные способы у администратора.
+  - question: Что делать, если опаздываю?
+    answer: Свяжитесь с нами по контактам из меню.
